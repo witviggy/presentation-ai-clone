@@ -200,4 +200,4 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 Built with ❤️ by the ALLWEONE team
 
-For any questions or support, please open an issue on GitHub or contact us at your-email@example.com
+For any questions or support, please open an issue on GitHub or contact us at developer@allweone.com
