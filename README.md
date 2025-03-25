@@ -50,14 +50,26 @@ An open-source AI-powered presentation generator that creates beautiful, customi
    ```
 
 3. Set up environment variables:
-   Create a `.env.local` file in the root directory with:
+   Create a `.env` file in the root directory with:
 
    ```
-   OPENAI_API_KEY=your_openai_api_key_here
-   # Add any other required API keys for image generation
+   # AI Providers
+   OPENAI_API_KEY=""
+   TOGETHER_AI_API_KEY=""
+
+
+   # For Next Auth
+   NEXTAUTH_SECRET=""
+   NEXTAUTH_URL=""
+   NEXTAUTH_URL="http://192.168.1.83:3000"
+
+   # Next Auth Google Provider
+   GOOGLE_CLIENT_ID=""
+   GOOGLE_CLIENT_SECRET=""
 
    # PostgreSQL Database URL
    DATABASE_URL="postgresql://username:password@localhost:5432/presentation_ai"
+
    ```
 
    Note: You need to set up a PostgreSQL database for testing the application.
