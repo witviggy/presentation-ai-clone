@@ -1,4 +1,4 @@
-# ALLWEONE Presentation Generator
+# ALLWEONE™ Presentation Generator
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![TypeScript](https://img.shields.io/badge/TypeScript-007ACC?logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
@@ -210,6 +210,6 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ---
 
-Built with ❤️ by the ALLWEONE team
+Built with ❤️ by the ALLWEONE™ team
 
 For any questions or support, please open an issue on GitHub or contact us at developer@allweone.com
