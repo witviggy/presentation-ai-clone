@@ -67,6 +67,9 @@ An open-source AI-powered presentation generator that creates beautiful, customi
    GOOGLE_CLIENT_ID=""
    GOOGLE_CLIENT_SECRET=""
 
+   # For Uploadthing
+   UPLOADTHING_TOKEN=""
+
    # PostgreSQL Database URL
    DATABASE_URL="postgresql://username:password@localhost:5432/presentation_ai"
 
