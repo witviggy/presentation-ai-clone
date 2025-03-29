@@ -8,7 +8,7 @@
 
 An open-source AI-powered presentation generator that creates beautiful, customizable slides in minutes. This tool is part of the broader ALLWEONE AI platform.
 
-[Live Demo](https://allweone.com/presentation) | [Video Tutorial](https://your-video-url-here.com)
+[Live Demo](https://allweone.com/presentations) | [Video Tutorial](https://your-video-url-here.com)
 
 ## 🌟 Features
 
