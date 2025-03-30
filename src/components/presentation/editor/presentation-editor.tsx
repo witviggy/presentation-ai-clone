@@ -49,6 +49,7 @@ import "@/app/presentation.css";
 
 import "@/components/ui/font-picker.css";
 import "react-fontpicker-ts/dist/index.css";
+import { usePresentationState } from "@/states/presentation-state";
 const createEditor = () => {
   const editor = createPlateEditor({
     plugins: [...basicNodesPlugins, ...presentationPlugins],
@@ -109,6 +110,7 @@ interface PresentationEditorProps {
   slideIndex: number;
   isGenerating: boolean;
   readOnly?: boolean;
+  isPreview?: boolean;
 }
 // Use React.memo with a custom comparison function to prevent unnecessary re-renders
 const PresentationEditor = React.memo(
@@ -121,7 +123,9 @@ const PresentationEditor = React.memo(
     slideIndex,
     isGenerating = false,
     readOnly = false,
+    isPreview = false,
   }: PresentationEditorProps) => {
+    const { isPresenting } = usePresentationState();
     // Create a unique editor instance
     const editor = useMemo(() => createEditor(), []);
 
@@ -141,17 +145,19 @@ const PresentationEditor = React.memo(
       }
     }, [initialContent, isGenerating]);
 
-    // Create a stable debounced onChange handler
-    const debouncedOnChange = useRef<ReturnType<typeof debounce>>(
-      debounce((value: Value, index: number) => {
-        onChange?.(value, index);
-      }, 600)
+    const debouncedOnChange = useRef(
+      debounce(
+        (value: Value, index: number) => {
+          onChange?.(value, index);
+        },
+        100,
+        { maxWait: 200 }
+      )
     ).current;
 
     // Cleanup debounce on unmount
     useEffect(() => {
       return () => {
-        // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
         debouncedOnChange.cancel();
       };
     }, [debouncedOnChange]);
@@ -181,7 +187,8 @@ const PresentationEditor = React.memo(
           <Plate
             editor={editor}
             onValueChange={({ value }) => {
-              if (readOnly || isGenerating) return;
+              if (readOnly || isGenerating || isPresenting) return;
+
               debouncedOnChange(value, slideIndex);
             }}
             readOnly={isGenerating || readOnly}
@@ -201,8 +208,9 @@ const PresentationEditor = React.memo(
               autoFocus={autoFocus && !readOnly}
               variant="ghost"
               size="md"
-              readOnly={isGenerating || readOnly}
+              readOnly={isPreview || isGenerating || readOnly}
             />
+
             {!readOnly && (
               <FloatingToolbar>
                 <FloatingToolbarButtons />
@@ -215,7 +223,7 @@ const PresentationEditor = React.memo(
                   image={initialContent.rootImage}
                   slideIndex={slideIndex}
                   layoutType={initialContent.layoutType}
-                  readOnly={readOnly}
+                  shouldGenerate={!isPreview}
                 />
               )}
             {!readOnly && <ImageGenerationModel></ImageGenerationModel>}

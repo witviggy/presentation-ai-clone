@@ -25,12 +25,12 @@ export default function RootImage({
   image,
   slideIndex,
   layoutType,
-  readOnly = false,
+  shouldGenerate = true,
 }: {
   image: { query: string; url?: string };
   slideIndex: number;
   layoutType?: string;
-  readOnly?: boolean;
+  shouldGenerate?: boolean;
 }) {
   const { setSlides, imageModel } = usePresentationState();
   const { saveImmediately } = useDebouncedSave();
@@ -45,7 +45,6 @@ export default function RootImage({
   const [error, setError] = useState<string | undefined>();
   // State for showing delete popover
   const [showDeletePopover, setShowDeletePopover] = useState(false);
-
   const editor = useEditorRef();
   // Create a fake element for dragging - with a unique ID
   const element = {
@@ -56,14 +55,9 @@ export default function RootImage({
     children: [{ text: "" }],
   };
 
-  if (readOnly && image.url && image.url !== imageUrl) {
-    console.log("Preview Root Image " + slideIndex, image, image.url);
-    setImageUrl(image.url);
-    setIsGenerating(false);
-  }
   // Generate image with the given prompt
   const generateImage = async (prompt: string) => {
-    if (readOnly) {
+    if (!shouldGenerate) {
       return;
     }
     setIsGenerating(true);

@@ -12,6 +12,7 @@ import { SlidePreviewRenderer } from "./SlidePreviewRenderer";
 import { usePresentationSlides } from "@/hooks/presentation/usePresentationSlides";
 import { type TElement } from "@udecode/plate-common";
 import { usePresentationState } from "@/states/presentation-state";
+import { cn } from "@/lib/utils";
 import { useEffect } from "react";
 import { SlideContainer } from "./SlideContainer";
 import PresentationEditor from "../editor/presentation-editor";
@@ -25,17 +26,45 @@ export const PresentationSlidesView = ({
   handleSlideChange,
   isGeneratingPresentation,
 }: PresentationSlidesViewProps) => {
-  const { currentSlideIndex } = usePresentationState();
+  const {
+    currentSlideIndex,
+    isPresenting,
+    nextSlide,
+    previousSlide,
+    setShouldShowExitHeader,
+  } = usePresentationState();
   const { items, sensors, handleDragEnd } = usePresentationSlides();
   // Use the slide change watcher to automatically save changes
-  useSlideChangeWatcher({ debounceDelay: 1500 });
-
+  useSlideChangeWatcher({ debounceDelay: 600 });
+  // Handle keyboard navigation in presentation mode
   useEffect(() => {
-    console.log("PresentationSlidesView Mounted");
-
-    return () => {
-      console.log("PresentationSlidesView Unmounted");
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (!isPresenting) return;
+      if (event.key === "ArrowRight" || event.key === "Space") {
+        nextSlide();
+      } else if (event.key === "ArrowLeft") {
+        previousSlide();
+      } else if (event.key === "Escape") {
+        usePresentationState.getState().setIsPresenting(false);
+      }
     };
+
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, [nextSlide, previousSlide, isPresenting]);
+
+  // Handle showing header on mouse move
+  useEffect(() => {
+    const handleMouseMove = (event: MouseEvent) => {
+      if (event.clientY < 100) {
+        setShouldShowExitHeader(true);
+      } else {
+        setShouldShowExitHeader(false);
+      }
+    };
+
+    window.addEventListener("mousemove", handleMouseMove);
+    return () => window.removeEventListener("mousemove", handleMouseMove);
   }, []);
 
   return (
@@ -52,16 +81,24 @@ export const PresentationSlidesView = ({
               className={`slide-wrapper slide-wrapper-${index}`}
             >
               <SlideContainer index={index} id={slide.id}>
-                <div className={`slide-container-${index}`}>
+                <div
+                  className={cn(
+                    `slide-container-${index}`,
+                    isPresenting && "h-screen w-screen"
+                  )}
+                >
                   <PresentationEditor
                     initialContent={slide}
-                    className="min-h-[300px] rounded-md border"
+                    className={cn(
+                      "min-h-[300px] rounded-md border",
+                      isPresenting && "h-screen w-screen"
+                    )}
                     id={slide.id}
                     autoFocus={index === currentSlideIndex}
                     slideIndex={index}
                     onChange={(value) => handleSlideChange(value, index)}
                     isGenerating={isGeneratingPresentation}
-                    readOnly={false}
+                    readOnly={isPresenting}
                   />
                 </div>
               </SlideContainer>
@@ -72,12 +109,13 @@ export const PresentationSlidesView = ({
                   initialContent={slide}
                   className="min-h-[300px] border"
                   id={`preview-${slide.id}`}
+                  isPreview={true}
+                  readOnly={true}
                   slideIndex={index}
                   onChange={() => {
-                    /* Read-only in preview */
+                    // Test
                   }}
                   isGenerating={isGeneratingPresentation}
-                  readOnly={true}
                 />
               </SlidePreviewRenderer>
             </div>

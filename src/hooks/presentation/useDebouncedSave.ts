@@ -22,67 +22,62 @@ export const useDebouncedSave = (options: UseDebouncedSaveOptions = {}) => {
 
   // Create debounced save function
   const debouncedSave = useRef(
-    debounce(async () => {
-      // Get the latest state directly from the store
-      const {
-        slides,
-        currentPresentationId,
-        currentPresentationTitle,
-        theme,
-        outline,
-        isGeneratingOutline,
-        isGeneratingPresentation,
-        imageModel,
-        presentationStyle,
-        language,
-      } = usePresentationState.getState();
-
-      // Don't save if we're generating content or if there's no presentation
-      if (!currentPresentationId || slides.length === 0) return;
-      if (isGeneratingOutline || isGeneratingPresentation) {
-        setSavingStatus("idle");
-        return;
-      }
-
-      try {
-        setSavingStatus("saving");
-
-        await updatePresentation({
-          id: currentPresentationId,
-          content: {
-            slides,
-          },
-          title: currentPresentationTitle ?? "",
-          outline,
+    debounce(
+      async () => {
+        // Get the latest state directly from the store
+        const {
+          slides,
+          currentPresentationId,
+          currentPresentationTitle,
           theme,
+          outline,
           imageModel,
           presentationStyle,
           language,
-        });
+        } = usePresentationState.getState();
 
-        setSavingStatus("saved");
-        // Reset to idle after 2 seconds
-        setTimeout(() => {
+        // Don't save if we're generating content or if there's no presentation
+        if (!currentPresentationId || slides.length === 0) return;
+        try {
+          setSavingStatus("saving");
+
+          await updatePresentation({
+            id: currentPresentationId,
+            content: {
+              slides,
+            },
+            title: currentPresentationTitle ?? "",
+            outline,
+            theme,
+            imageModel,
+            presentationStyle,
+            language,
+          });
+
+          setSavingStatus("saved");
+          // Reset to idle after 2 seconds
+          setTimeout(() => {
+            setSavingStatus("idle");
+          }, 2000);
+        } catch (error) {
+          console.error("Failed to save presentation:", error);
           setSavingStatus("idle");
-        }, 2000);
-      } catch (error) {
-        console.error("Failed to save presentation:", error);
-        setSavingStatus("idle");
-      }
-    }, delay)
+        }
+      },
+      delay,
+      { maxWait: delay * 2 }
+    )
   ).current;
 
   // Cleanup debounce on unmount
   useEffect(() => {
     return () => {
-      // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
       debouncedSave.cancel();
     };
   }, [debouncedSave]);
 
   // Save slides immediately (useful for manual saves)
   const saveImmediately = useCallback(async () => {
-    // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
     debouncedSave.cancel();
 
     // Get the latest state directly from the store
@@ -129,14 +124,6 @@ export const useDebouncedSave = (options: UseDebouncedSaveOptions = {}) => {
 
   // Trigger save function
   const save = useCallback(() => {
-    // Get the latest state directly from the store to check if we're generating content
-    const { isGeneratingOutline, isGeneratingPresentation } =
-      usePresentationState.getState();
-
-    // Don't trigger save if we're generating content
-    if (isGeneratingOutline || isGeneratingPresentation) {
-      return;
-    }
     setSavingStatus("saving");
     void debouncedSave();
   }, [debouncedSave, setSavingStatus]);

@@ -25,7 +25,6 @@ interface PresentationState {
 
   // Generation states
   shouldStartOutlineGeneration: boolean;
-  imageGenerationModelOpen: boolean;
   shouldStartPresentationGeneration: boolean;
   isGeneratingOutline: boolean;
   isGeneratingPresentation: boolean;
@@ -37,12 +36,13 @@ interface PresentationState {
   setIsGridView: (isGrid: boolean) => void;
   setIsSheetOpen: (isOpen: boolean) => void;
   setNumSlides: (num: number) => void;
-  setImageGenerationModelOpen: (update: boolean) => void;
   setTheme: (
     // eslint-disable-next-line @typescript-eslint/no-redundant-type-constituents
     theme: Themes | string,
     customData?: ThemeProperties | null
   ) => void;
+  shouldShowExitHeader: boolean;
+  setShouldShowExitHeader: (udpdate: boolean) => void;
   setLanguage: (lang: string) => void;
   setPageStyle: (style: string) => void;
   setShowTemplates: (show: boolean) => void;
@@ -80,6 +80,8 @@ export const usePresentationState = create<PresentationState>((set) => ({
   currentPresentationTitle: null,
   isGridView: true,
   isSheetOpen: false,
+  shouldShowExitHeader: false,
+  setShouldShowExitHeader: (update) => set({ shouldShowExitHeader: update }),
   numSlides: 10,
   language: "en-US",
   pageStyle: "default",
@@ -95,7 +97,6 @@ export const usePresentationState = create<PresentationState>((set) => ({
   isPresenting: false,
   currentSlideIndex: 0,
   isThemeCreatorOpen: false,
-  imageGenerationModelOpen: false,
 
   // Generation states
   shouldStartOutlineGeneration: false,
@@ -104,7 +105,7 @@ export const usePresentationState = create<PresentationState>((set) => ({
   isGeneratingPresentation: false,
 
   setSlides: (slides) => {
-    setTimeout(() => set({ slides }), 0);
+    set({ slides });
   },
   setCurrentPresentation: (id, title) =>
     set({ currentPresentationId: id, currentPresentationTitle: title }),
@@ -117,8 +118,6 @@ export const usePresentationState = create<PresentationState>((set) => ({
       theme: theme,
       customThemeData: customData,
     }),
-  setImageGenerationModelOpen: (update) =>
-    set({ imageGenerationModelOpen: update }),
   setPageStyle: (style) => set({ pageStyle: style }),
   setShowTemplates: (show) => set({ showTemplates: show }),
   setPresentationInput: (input) => set({ presentationInput: input }),

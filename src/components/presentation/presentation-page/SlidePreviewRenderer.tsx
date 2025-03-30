@@ -1,5 +1,6 @@
 "use client";
 
+import debounce from "lodash.debounce";
 import { useEffect, useState, useRef } from "react";
 import { createPortal } from "react-dom";
 
@@ -31,7 +32,7 @@ export function SlidePreviewRenderer({
   useEffect(() => {
     const calculateDimensions = () => {
       const slidePreview = document.querySelector(
-        `#slide-preview-${slideIndex}`,
+        `#slide-preview-${slideIndex}`
       );
 
       if (!slidePreview || !childrenRef.current) return;
@@ -55,9 +56,11 @@ export function SlidePreviewRenderer({
       setScale(newScale);
     };
 
+    const debouncedCalculateDimensions = debounce(calculateDimensions, 600);
+
     // Setup resize observer for responsive scaling
     const observer = new ResizeObserver(() => {
-      calculateDimensions();
+      debouncedCalculateDimensions();
     });
 
     const slidePreview = document.querySelector(`#slide-preview-${slideIndex}`);
@@ -110,7 +113,7 @@ export function SlidePreviewRenderer({
             {children}
           </div>
         </div>,
-        previewElement,
+        previewElement
       )}
     </div>
   );

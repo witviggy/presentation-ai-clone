@@ -22,8 +22,7 @@ export function PresentationLayout({
   isLoading = false,
   themeData,
 }: PresentationLayoutProps) {
-  const { isPresenting, currentSlideIndex, setCurrentSlideIndex } =
-    usePresentationState();
+  const { currentSlideIndex, setCurrentSlideIndex } = usePresentationState();
   const [sidebarWidth, setSidebarWidth] = useState(150);
 
   const { scrollToSlide } = usePresentationSlides();
@@ -45,11 +44,6 @@ export function PresentationLayout({
 
   if (isLoading) {
     return <LoadingState />;
-  }
-
-  // When in presentation mode, don't show the preview sidebar
-  if (isPresenting) {
-    return <>{children}</>;
   }
 
   return (

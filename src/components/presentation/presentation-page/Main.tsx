@@ -16,7 +16,6 @@ import { useTheme } from "next-themes";
 import { getCustomThemeById } from "@/app/_actions/presentation/theme-actions";
 import debounce from "lodash.debounce";
 import { PresentationSlidesView } from "./PresentationSlidesView";
-import { PresentationMode } from "./PresentationMode";
 import { LoadingState } from "./Loading";
 import { PresentationLayout } from "./PresentationLayout";
 import { type Value } from "@udecode/plate-common";
@@ -38,7 +37,6 @@ export default function PresentationPage() {
     setOutline,
     setSlides,
     isGeneratingPresentation,
-    isPresenting,
     setTheme,
     setImageModel,
     setPresentationStyle,
@@ -231,10 +229,6 @@ export default function PresentationPage() {
 
   if (isLoading) {
     return <LoadingState />;
-  }
-
-  if (isPresenting && presentationData?.presentation) {
-    return <PresentationMode presentationData={presentationData} />;
   }
 
   return (
