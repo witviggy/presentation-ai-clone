@@ -4,7 +4,7 @@
 [![Next.js](https://img.shields.io/badge/Next.js-000000?logo=next.js&logoColor=white)](https://nextjs.org/)
 [![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-38B2AC?logo=tailwind-css&logoColor=white)](https://tailwindcss.com/)
 
-An open-source AI-powered presentation generator that creates beautiful, customizable slides in minutes. This tool is part of the broader ALLWEONE AI platform.
+An open-source AI-powered presentation generator that creates beautiful, customizable slides in minutes, inspired by gamma ai. This tool is part of the broader ALLWEONE AI platform.
 
 [Live Demo](https://allweone.com/presentations) | [Video Tutorial](https://www.youtube.com/watch?v=UUePLJeFqVQ)
 
