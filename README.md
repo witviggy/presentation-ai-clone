@@ -1,4 +1,4 @@
-# ALLWEONE™ Presentation Generator
+# ALLWEONE® AI Presentation Generator
 
 
 https://github.com/user-attachments/assets/a21dbd49-75b8-4822-bcec-a75b581d9c60
