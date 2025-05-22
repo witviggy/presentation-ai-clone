@@ -204,7 +204,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## 🔮 Round Map 
 
-Project Management at ALLWEONE
+Project Management
 ALLWEONE is a collaborative initiative! While we thrive on contributions from the community, the core team actively steers the project to ensure clarity and coordination. Our goal is to organize development efforts transparently, so everyone can easily understand where the current priorities lie and how to get involved effectively.
 
 Requested Additions ✅  ⬜ 
