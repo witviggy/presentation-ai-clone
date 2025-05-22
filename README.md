@@ -208,11 +208,11 @@ Project Management at ALLWEONE
 ALLWEONE is a collaborative initiative! While we thrive on contributions from the community, the core team actively steers the project to ensure clarity and coordination. Our goal is to organize development efforts transparently, so everyone can easily understand where the current priorities lie and how to get involved effectively.
 
 Requested Additions ✅  ⬜ 
-
+ ⬜ Prompt Colors (@helberthass)
  ⬜ python implementation (@Yerkhatt)
  ⬜ Integrate Llama 4 and Pinokio(@exzosdigital )
  ⬜ Ollama models  (@matos242)
- ⬜ Fast image generator (@allweonedev)
+ ⬜ Fast image generator  HD (@allweonedev)
  ⬜ Card templates (@allweonedev)
  ⬜ Card layouts (@allweonedev)
  ⬜ Collections and sequences (@allweonedev)
