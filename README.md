@@ -1,5 +1,5 @@
 # ALLWEONE® AI Presentation Generator
-
+⭐ Help us reach more developers and grow the Graphiti community. Star this repo!
 
 https://github.com/user-attachments/assets/a21dbd49-75b8-4822-bcec-a75b581d9c60
 
