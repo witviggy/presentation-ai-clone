@@ -209,9 +209,9 @@ ALLWEONE is a collaborative initiative! While we thrive on contributions from th
 
 Requested Additions ✅  ⬜ 
 
- ⬜  python implementation (@Yerkhatt)
- ⬜  Integrate Llama 4 and Pinokio(@exzosdigital )
- ⬜  Autogenerate Ollama models from what is downloaded (@matos242)
+ ⬜ python implementation (@Yerkhatt)
+ ⬜ Integrate Llama 4 and Pinokio(@exzosdigital )
+ ⬜ Ollama models  (@matos242)
  ⬜ Fast image generator (@allweonedev)
  ⬜ Card templates (@allweonedev)
  ⬜ Card layouts (@allweonedev)
@@ -221,7 +221,6 @@ Requested Additions ✅  ⬜
  ⬜ Embeds ( youtube, webpage etc)(@allweonedev)
  ⬜ Progressive disclosure(@allweonedev)
  ⬜ Miscellaneous(@allweonedev)
----
 
 
 https://github.com/user-attachments/assets/2a479040-a9db-4e88-a72a-70f040fa853b
