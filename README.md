@@ -221,7 +221,7 @@ Requested Additions ✅  ⬜
  ⬜ Embeds ( youtube, webpage etc)(@allweonedev)
  ⬜ Progressive disclosure(@allweonedev)
  ⬜ Miscellaneous(@allweonedev)
-
+ ⬜ + More Customize Theme (@allweonedev)
 
 https://github.com/user-attachments/assets/2a479040-a9db-4e88-a72a-70f040fa853b
 
