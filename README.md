@@ -226,6 +226,6 @@ Requested Additions ✅  ⬜
 https://github.com/user-attachments/assets/2a479040-a9db-4e88-a72a-70f040fa853b
 
 
-Built with ❤️ by the ALLWEONE™ team 🇺🇸🇧🇷🇳🇵🇮🇳🇨🇳🇯🇵🇸🇬🇩🇪🏴󠁧󠁢󠁥󠁮󠁧󠁿🇺🇦🇰🇿🇷🇺🇦🇪🇸🇦🇰🇷🇹🇭🇮🇩🇲🇽🇬🇹🇫🇷🇮🇱🇻🇳
+Built with ❤️ by the ALLWEONE™ team 🇺🇸🇧🇷🇳🇵🇮🇳🇨🇳🇯🇵🇸🇬🇩🇪🏴󠁧󠁢󠁥󠁮󠁧󠁿🇺🇦🇰🇿🇷🇺🇦🇪🇸🇦🇰🇷🇹🇭🇮🇩🇲🇽🇬🇹🇫🇷🇮🇱🇻🇳🇵🇹
 
 For any questions or support, please open an issue on GitHub or contact us at Discord https://discord.gg/JRcHcaUD
