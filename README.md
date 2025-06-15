@@ -202,30 +202,9 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 - [Next.js](https://nextjs.org/) for the React framework
 - All our open-source [contributors](https://github.com/allweonedev/presentation-ai/graphs/contributors)
 
-## 🔮 Round Map 
-
-Project Management
-ALLWEONE is a collaborative initiative! While we thrive on contributions from the community, the core team actively steers the project to ensure clarity and coordination. Our goal is to organize development efforts transparently, so everyone can easily understand where the current priorities lie and how to get involved effectively.
-
-Requested Additions ✅  ⬜ 
- ⬜ Prompt Colors (@helberthass)
- ⬜ python implementation (@Yerkhatt)
- ⬜ Integrate Llama 4 and Pinokio(@exzosdigital )
- ⬜ Ollama models  (@matos242)
- ⬜ Fast image generator  HD (@allweonedev)
- ⬜ Card templates (@allweonedev)
- ⬜ Card layouts (@allweonedev)
- ⬜ Collections and sequences (@allweonedev)
- ⬜ Pyramids and funnels(@allweonedev)
- ⬜ Charts, statistics and data(@allweonedev)
- ⬜ Embeds ( youtube, webpage etc)(@allweonedev)
- ⬜ Progressive disclosure(@allweonedev)
- ⬜ Miscellaneous(@allweonedev)
- ⬜ + More Customize Theme (@allweonedev)
 
 
 
-
-Built with ❤️ by the ALLWEONE™ team 🇺🇸🇧🇷🇳🇵🇮🇳🇨🇳🇯🇵🇸🇬🇩🇪🏴󠁧󠁢󠁥󠁮󠁧󠁿🇺🇦🇰🇿🇷🇺🇦🇪🇸🇦🇰🇷🇹🇭🇮🇩🇲🇽🇬🇹🇫🇷🇮🇱🇻🇳🇵🇹🇮🇹🇨🇱🇨🇦🇵🇰🇸🇪
+Built with ❤️ by the ALLWEONE™ team 🇺🇸🇧🇷🇳🇵🇮🇳🇨🇳🇯🇵🇸🇬🇩🇪🏴󠁧󠁢󠁥󠁮󠁧󠁿🇺🇦🇰🇿🇷🇺🇦🇪🇸🇦🇰🇷🇹🇭🇮🇩🇲🇽🇬🇹🇫🇷🇮🇱🇻🇳🇵🇹🇮🇹🇨🇱🇨🇦🇵🇰🇸🇪🇱🇧
 
 For any questions or support, please open an issue on GitHub or contact us at Discord https://discord.gg/6nXzG3Zd
